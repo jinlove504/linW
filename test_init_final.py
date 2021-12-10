@@ -323,6 +323,7 @@ def init():
 		basicSetting.append(inputData[7][14:])     #basicSetting[20] : item 채널 ID
 		basicSetting.append(inputData[21][12:])     #basicSetting[21] : voice_use
 		basicSetting.append(inputData[11][11:])     #basicSetting[22] : mungChk2
+		basicSetting.append(inputData[22][14:])     #basicSetting[23] : 출력 셀2
 	except:
 		raise Exception("[test_setting.ini] 파일 양식을 확인하세요.")
 
@@ -1993,9 +1994,10 @@ class mainCog(commands.Cog):
 				wks.update_acell(basicSetting[15], SearchID)
 
 				result = wks.acell(basicSetting[16]).value
+				result1 = wks.acell(basicSetting[23]).value
 
 				embed = discord.Embed(
-						description= '```' + SearchID + ' 님이 받을 다이야는 ' + result + ' 다이야 입니다.```',
+						description= '신과함께\n' + SearchID + ' 총 다이아 : ' + result + '\n꽃신 : ' + result1,
 						color=0xff00ff
 						)
 				await ctx.send(embed=embed, tts=False)
