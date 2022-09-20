@@ -3888,8 +3888,8 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 		super().__init__(command_prefix="", help_command=None, intents=intents)
 
 	async def run(self):
-        	await self.add_cog(mainCog(ilsang_distribution_bot))
-        	await self.add_cog(taskCog(ilsang_distribution_bot))
+        	await self.add_cog(mainCog(self))
+        	await self.add_cog(taskCog(self))
         	super().run(access_token, reconnect=True)
 
 	async def on_ready(self):
