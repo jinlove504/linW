@@ -3884,6 +3884,8 @@ class mainCog(commands.Cog):
 
 class IlsangDistributionBot(commands.AutoShardedBot):
 	def __init__(self):
+		await ilsang_distribution_bot.add_cog(mainCog(ilsang_distribution_bot))
+		await ilsang_distribution_bot.add_cog(taskCog(ilsang_distribution_bot))
 		intents = discord.Intents.default()
 		super().__init__(command_prefix="", help_command=None, intents=intents)
 
@@ -4296,6 +4298,4 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 		print("일상디코봇 종료 완료.")
 
 ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
-await ilsang_distribution_bot.add_cog(mainCog(ilsang_distribution_bot))
-await ilsang_distribution_bot.add_cog(taskCog(ilsang_distribution_bot))
 ilsang_distribution_bot.run()
