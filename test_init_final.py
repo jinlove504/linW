@@ -4298,4 +4298,4 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 		print("일상디코봇 종료 완료.")
 
 ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
-ilsang_distribution_bot.run()
+asyncio.run(ilsang_distribution_bot.run())
