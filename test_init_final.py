@@ -3886,14 +3886,10 @@ class mainCog(commands.Cog):
 
 class IlsangDistributionBot(commands.AutoShardedBot):
 	def __init__(self):
-		intents = discord.Intents.default()
-		intents.messages = True
-		super().__init__(command_prefix=[""], help_command=None, intents=intents)
+		super().__init__(command_prefix=[""], help_command=None)
 
-	async def run(self):
-		await self.add_cog(mainCog(self))
-		await self.add_cog(taskCog(self))
-		await super().start(access_token)
+	def run(self):
+		super().run(access_token, reconnect=True)
 
 	async def on_ready(self):
 		global basicSetting
@@ -4300,13 +4296,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 		await super().close()
 		print("일상디코봇 종료 완료.")
 
-async def cog_setup(bot):
-	await bot.add_cog(mainCog(bot))
-	await bot.add_cog(taskCog(bot))
-
 ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
-
-async def main():
-	await ilsang_distribution_bot.run()
-
-asyncio.run(main())
+ilsang_distribution_bot.add_cog(mainCog(ilsang_distribution_bot))
+ilsang_distribution_bot.add_cog(taskCog(ilsang_distribution_bot))
+ilsang_distribution_bot.run()
