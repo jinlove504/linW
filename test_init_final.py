@@ -1267,8 +1267,8 @@ class taskCog(commands.Cog):
 
 class mainCog(commands.Cog): 
 	def __init__(self, bot):
-		print("mainCog Load")
 		self.bot = bot
+		print("mainCog Load")
 
 	################ 보탐봇 입장 ################ 	
 	@commands.has_permissions(manage_messages=True)
