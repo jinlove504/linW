@@ -3891,7 +3891,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 	async def run(self):
 		await self.add_cog(mainCog(self))
 		await self.add_cog(taskCog(self))
-        	await super().start(access_token)
+		await super().start(access_token)
 
 	async def on_ready(self):
 		global basicSetting
@@ -4305,6 +4305,6 @@ async def cog_setup(bot):
 ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
 
 async def main():
-    await ilsang_distribution_bot.run()
+	await ilsang_distribution_bot.run()
 
 asyncio.run(main())
