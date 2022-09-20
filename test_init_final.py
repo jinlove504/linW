@@ -3884,8 +3884,6 @@ class mainCog(commands.Cog):
 
 class IlsangDistributionBot(commands.AutoShardedBot):
 	def __init__(self):
-		intents = discord.Intents.default()
-		intents.messages = True
 		super().__init__(command_prefix=[""], help_command=None, intents=intents)
 
 	async def run(self):
