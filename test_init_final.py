@@ -3890,7 +3890,7 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 	async def run(self):
         	await self.add_cog(mainCog(self))
         	await self.add_cog(taskCog(self))
-        	await super().run(access_token, reconnect=True)
+        	await super().start(access_token)
 
 	async def on_ready(self):
 		global basicSetting
