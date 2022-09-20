@@ -876,6 +876,7 @@ class taskCog(commands.Cog):
 		self.checker = True
 
 		self.main_task.start()
+		print("taskCog Load")
 
 	@tasks.loop(seconds=1.0, count=1)
 	async def main_task(self):
@@ -1266,6 +1267,7 @@ class taskCog(commands.Cog):
 
 class mainCog(commands.Cog): 
 	def __init__(self, bot):
+		print("mainCog Load")
 		self.bot = bot
 
 	################ 보탐봇 입장 ################ 	
