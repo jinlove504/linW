@@ -4295,5 +4295,14 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 		await super().close()
 		print("일상디코봇 종료 완료.")
 
-ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
-asyncio.run(ilsang_distribution_bot.run())
+	async def cog_setup(bot):
+    		await bot.add_cog(mainCog(bot))
+    		await bot.add_cog(taskCog(bot))
+
+	ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
+
+	async def main():
+    		await cog_setup(ilsang_distribution_bot)
+    		await ilsang_distribution_bot.run()
+
+	asyncio.run(main())
