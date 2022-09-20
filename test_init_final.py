@@ -3889,6 +3889,8 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 		super().__init__(command_prefix=[""], help_command=None, intents=intents)
 
 	async def run(self):
+		await self.add_cog(mainCog(self))
+		await self.add_cog(taskCog(self))
         	await super().start(access_token)
 
 	async def on_ready(self):
@@ -4297,14 +4299,12 @@ class IlsangDistributionBot(commands.AutoShardedBot):
 		print("일상디코봇 종료 완료.")
 
 async def cog_setup(bot):
-	async with bot:
-		await bot.add_cog(mainCog(bot))
-    		await bot.add_cog(taskCog(bot))
+	await bot.add_cog(mainCog(bot))
+	await bot.add_cog(taskCog(bot))
 
 ilsang_distribution_bot : IlsangDistributionBot = IlsangDistributionBot()
 
 async def main():
-    await cog_setup(ilsang_distribution_bot)
     await ilsang_distribution_bot.run()
 
 asyncio.run(main())
